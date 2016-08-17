@@ -13,9 +13,9 @@ function isPermutation(str1,str2){
         countChar(str2,chars2,i);
     }
 
-    keys = Object.keys(chars1).concat(Object.keys(chars2)); //Runtime 2n
+    keys = Object.keys(chars1) //Runtime n
     for(i = 0; i < keys.length; i++){ //Runtime n
-        if(!chars1.hasOwnProperty(keys[i]) || !chars2.hasOwnProperty(keys[i]) || chars1[keys[i]] != chars2[keys[i]]){
+        if(!chars2.hasOwnProperty(keys[i]) || chars1[keys[i]] != chars2[keys[i]]){
             return false;
         }
     }
