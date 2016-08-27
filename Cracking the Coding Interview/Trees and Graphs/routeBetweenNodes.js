@@ -14,18 +14,18 @@ function areConnected(node1,node2){
     hash[node2.value] = "expanded2";
     q1.push(node1);
     q2.push(node2);
-    while(q1.length > 0 && q2.length > 0){
+    while(q1.length > 0 && q2.length > 0){ //Runtime d/2 d-> distance from nodes
         var tmp1 = q1.shift(), tmp2 = q2.shift();
-        if(expandNode(tmp1,q1,hash,"expanded1"))
+        if(expandNode(tmp1,q1,hash,"expanded1"))//Runtime n-1 (because max connections should be n-1)
             return true;
-        if(expandNode(tmp2,q2,hash,"expanded2"))
+        if(expandNode(tmp2,q2,hash,"expanded2"))//Runtime n-1
             return true;
     }
     return false;
 
 }
 
-function expandNode(node,q,hash,mark){
+function expandNode(node,q,hash,mark){//Runtime c -> connections
     for(var i = 0; i < node.connections.length; i++){
         var value = node.connections[i].value;
         if(hash.hasOwnProperty(value)){
@@ -39,3 +39,5 @@ function expandNode(node,q,hash,mark){
     }
     return false;
 }
+
+//O(d*n) d->distance between nodes & n->nodes
