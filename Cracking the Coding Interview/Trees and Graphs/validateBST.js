@@ -11,7 +11,7 @@ function TreeNode(value){
 function validateBST(node){
     var bst = true;
     if(node.left){
-      if(node.left.value < node.value){
+      if(node.left.value <= node.value){
         bst = bst && validateBST(node.left);
       }else{
         return false;
@@ -28,7 +28,7 @@ function validateBST(node){
         return false;
       }
     }
-    
+
     return bst;
 }
 
